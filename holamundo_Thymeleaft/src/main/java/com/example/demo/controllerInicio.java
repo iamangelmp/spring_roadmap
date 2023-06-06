@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -24,9 +25,19 @@ public class controllerInicio {
 		persona.setEmail("alexis.mplt@gmail.com");
 		persona.setCell("5443332211");
 		
+		var persona2 = new Persona();
+		persona2.setNombre("Fernando");
+		persona2.setApellido("Lopez");
+		persona2.setEmail("email@domain.com");
+		persona2.setCell("0099887766");
+		
+		List<Persona> personas = new ArrayList();
+		personas.add(persona);
+		personas.add(persona2);
+		
 		model.addAttribute("mensaje", mensaje);
 		model.addAttribute("saludando", saludo);
-		model.addAttribute("persona", persona);
+		model.addAttribute("personas", personas);
 		return "index";
 	}
 
