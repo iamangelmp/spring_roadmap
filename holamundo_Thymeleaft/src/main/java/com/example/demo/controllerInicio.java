@@ -31,9 +31,12 @@ public class controllerInicio {
 		persona2.setEmail("email@domain.com");
 		persona2.setCell("0099887766");
 		
-		List<Persona> personas = new ArrayList();
-		personas.add(persona);
-		personas.add(persona2);
+		//List<Persona> personas = new ArrayList();
+		//var personas = new ArrayList();
+//		personas.add(persona);
+//		personas.add(persona2);
+
+		var personas = Arrays.asList(persona, persona2);
 		
 		model.addAttribute("mensaje", mensaje);
 		model.addAttribute("saludando", saludo);

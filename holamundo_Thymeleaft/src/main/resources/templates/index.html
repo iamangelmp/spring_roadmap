@@ -28,6 +28,10 @@
                     
                 </table>
                 
+                <div th:if="${personas == null or personas.empty}">
+                    <span>La lista esta vacía</span>
+                </div>
+                
                 
                 <!--
                 <div>
