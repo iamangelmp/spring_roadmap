@@ -4,8 +4,11 @@
  */
 package com.iamangelmp.Main.controllers;
 
+import com.iamangelmp.Main.dao.UsuarioDAO;
+import com.iamangelmp.Main.dao.UsuarioDAOImp;
 import com.iamangelmp.Main.models.Usuario;
 import java.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -14,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 public class UsuarioController {
+	
+@Autowired
+private UsuarioDAO usuarioDAO;
 
 	@RequestMapping(value = "usuario/{id}")
 	public Usuario getUser(@PathVariable Long id) {
@@ -23,41 +29,14 @@ public class UsuarioController {
 		usuario.setApellido("Marquez");
 		usuario.setEmail("correo@correo.com");
 		usuario.setTelefono("5566778899");
-		usuario.setPass("Temporal1.");
+		usuario.setPassword("Temporal1.");
 		return usuario;
 	}
 
 	@RequestMapping(value = "usuarios")
 	public List<Usuario> getAllUsers() {
 
-		//var usuarios = new ArrayList();
-		//List<Usuario> usuarios = new ArrayList();
-
-		Usuario persona1 = new Usuario();
-		persona1.setNombre("Angel");
-		persona1.setApellido("Marquez");
-		persona1.setEmail("alexis.mplt@outlook.es");
-		persona1.setTelefono("6677889900");
-		persona1.setPass("ertyui");
-
-		Usuario persona2 = new Usuario();
-		persona2.setNombre("Rosario");
-		persona2.setApellido("Galvan");
-		persona2.setEmail("rogalvan@hotmail.com");
-		persona2.setTelefono("3344556677");
-		persona2.setPass("oiuytredsxcv");
-
-		Usuario persona3 = new Usuario();
-		persona3.setNombre("Montse");
-		persona3.setApellido("Solano");
-		persona3.setEmail("monsolano2000@gmail.com");
-		persona3.setTelefono("9944558811");
-		persona3.setPass("mnbvcssdfyu");
-
-		var usuarios = Arrays.asList(persona1, persona2, persona3);
-		
-
-		return usuarios;
+		return usuarioDAO.getAllUsers();
 	}
 
 //	@RequestMapping(value = "usuario")
