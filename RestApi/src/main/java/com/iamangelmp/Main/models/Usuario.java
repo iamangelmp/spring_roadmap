@@ -4,19 +4,35 @@
  */
 package com.iamangelmp.Main.models;
 
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.*;
 
 /**
  *
  * @author Alexis
  */
-@Data
+@Entity
+@Table(name="user")
+@ToString @EqualsAndHashCode
 public class Usuario {
+	
+	@Id
+	@Getter @Setter @Column(name = "id_user")
 	protected Long id;
+	
+	@Getter @Setter @Column(name = "user_nombre")
 	protected String nombre;
+	
+	@Getter @Setter @Column(name = "user_apellido")
 	protected String apellido;
+	
+	@Getter @Setter @Column(name = "user_email")
 	protected String email;
+	
+	@Getter @Setter @Column(name = "user_telefono")
 	protected String telefono;
-	protected String pass;
+	
+	@Getter @Setter @Column(name = "user_password")
+	protected String password;
 	
 }
