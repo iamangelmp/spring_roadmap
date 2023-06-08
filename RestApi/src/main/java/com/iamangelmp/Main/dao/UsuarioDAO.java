@@ -19,5 +19,7 @@ public interface UsuarioDAO {
 
 	Usuario getUserById(Long id);
 
+	Usuario createUser(Usuario usuario);
+
 	
 }

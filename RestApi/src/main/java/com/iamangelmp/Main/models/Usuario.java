@@ -17,6 +17,7 @@ import lombok.*;
 public class Usuario {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Getter @Setter @Column(name = "id_user")
 	protected Long id;
 	

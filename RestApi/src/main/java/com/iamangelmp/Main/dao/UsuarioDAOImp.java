@@ -10,14 +10,15 @@ import jakarta.persistence.*;
 import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 /**
  *
  * @author Alexis
  */
 @Repository
 @Transactional
-public class UsuarioDAOImp implements UsuarioDAO{
-	
+public class UsuarioDAOImp implements UsuarioDAO {
+
 	@PersistenceContext
 	EntityManager entityManager;
 
@@ -26,14 +27,14 @@ public class UsuarioDAOImp implements UsuarioDAO{
 	public List<Usuario> getAllUsers() {
 		String query = "FROM Usuario";
 		List<Usuario> resultado = entityManager.createQuery(query).getResultList();
-		System.out.println("----------------------------------->"+resultado);
+		System.out.println("----------------------------------->" + resultado);
 		return resultado;
 	}
 
 	@Override
 	public void deleteById(Long id) {
 		Usuario usuario = entityManager.find(Usuario.class, id);
-		System.out.println("------------------------------------------- > usuario = " +  usuario);
+		System.out.println("------------------------------------------- > usuario = " + usuario);
 		entityManager.remove(usuario);
 	}
 
@@ -43,5 +44,11 @@ public class UsuarioDAOImp implements UsuarioDAO{
 		return response;
 	}
 
-	
+	@Override
+	public Usuario createUser(Usuario usuario) {
+		System.out.println("usuario ----------------------------------------------------------------> " + usuario);
+		entityManager.merge(usuario);
+		return usuario;
+	}
+
 }

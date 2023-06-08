@@ -36,10 +36,12 @@ private UsuarioDAO usuarioDAO;
 		usuarioDAO.deleteById(id);
 	}
 
-//	@RequestMapping(value = "usuario")
-//	public String createUser() {
-//		return "create user";
-//	}
-//
+	@RequestMapping(value = "api/usuario", method = RequestMethod.POST)
+	public Usuario createUser(@RequestBody Usuario usuario) {
+		System.out.println("----------------------> usuario = " +  usuario);
+		return usuarioDAO.createUser(usuario);
+		//return usuario;
+	}
+
 
 }
