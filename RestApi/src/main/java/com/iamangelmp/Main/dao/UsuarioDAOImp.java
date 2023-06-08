@@ -29,5 +29,19 @@ public class UsuarioDAOImp implements UsuarioDAO{
 		System.out.println("----------------------------------->"+resultado);
 		return resultado;
 	}
+
+	@Override
+	public void deleteById(Long id) {
+		Usuario usuario = entityManager.find(Usuario.class, id);
+		System.out.println("------------------------------------------- > usuario = " +  usuario);
+		entityManager.remove(usuario);
+	}
+
+	@Override
+	public Usuario getUserById(Long id) {
+		var response = entityManager.find(Usuario.class, id);
+		return response;
+	}
+
 	
 }

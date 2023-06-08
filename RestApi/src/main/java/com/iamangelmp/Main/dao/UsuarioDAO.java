@@ -14,5 +14,10 @@ import java.util.List;
 public interface UsuarioDAO {
 	
 	List<Usuario> getAllUsers();
+
+	public void deleteById(Long id);
+
+	Usuario getUserById(Long id);
+
 	
 }

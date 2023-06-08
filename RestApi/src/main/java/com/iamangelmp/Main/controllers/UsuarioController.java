@@ -5,7 +5,6 @@
 package com.iamangelmp.Main.controllers;
 
 import com.iamangelmp.Main.dao.UsuarioDAO;
-import com.iamangelmp.Main.dao.UsuarioDAOImp;
 import com.iamangelmp.Main.models.Usuario;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,22 +20,20 @@ public class UsuarioController {
 @Autowired
 private UsuarioDAO usuarioDAO;
 
-	@RequestMapping(value = "usuario/{id}")
+	@RequestMapping(value = "api/usuario/{id}", method = RequestMethod.GET)
 	public Usuario getUser(@PathVariable Long id) {
-		var usuario = new Usuario();
-		usuario.setId(id);
-		usuario.setNombre("Angel");
-		usuario.setApellido("Marquez");
-		usuario.setEmail("correo@correo.com");
-		usuario.setTelefono("5566778899");
-		usuario.setPassword("Temporal1.");
-		return usuario;
+		return usuarioDAO.getUserById(id);
 	}
 
-	@RequestMapping(value = "usuarios")
+	@RequestMapping(value = "api/usuarios")
 	public List<Usuario> getAllUsers() {
 
 		return usuarioDAO.getAllUsers();
+	}
+	
+	@RequestMapping(value = "api/usuario/{id}", method = RequestMethod.DELETE)
+	public void deleteUser(@PathVariable Long id) {
+		usuarioDAO.deleteById(id);
 	}
 
 //	@RequestMapping(value = "usuario")
@@ -44,8 +41,5 @@ private UsuarioDAO usuarioDAO;
 //		return "create user";
 //	}
 //
-//	@RequestMapping(value = "usuario")
-//	public String deleteUser() {
-//		return "delete user";
-//	}
+
 }
