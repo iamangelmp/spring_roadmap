@@ -9,10 +9,9 @@
             <goal>spring-boot:run</goal>
         </goals>
         <properties>
-            <run.jvmArguments>-noverify -XX:TieredStopAtLevel=1</run.jvmArguments>
-            <run.mainClass>com.imangel.Hello_World.Hello_WorldApplication</run.mainClass>
+            <run.jvmArguments>-noverify -XX:TieredStopAtLevel=1 </run.jvmArguments>
+            <run.mainClass>com.imangel.Hello_World_Thymelift.Hello_World_ThymeliftApplication</run.mainClass>
             <Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
-            <run.arguments>--spring.devtools.restart.enabled</run.arguments>
         </properties>
     </action>
     <action>
@@ -24,11 +23,10 @@
             <goal>spring-boot:run</goal>
         </goals>
         <properties>
-            <run.jvmArguments>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -noverify -XX:TieredStopAtLevel=1</run.jvmArguments>
-            <run.mainClass>com.imangel.Hello_World.Hello_WorldApplication</run.mainClass>
+            <run.jvmArguments>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -noverify -XX:TieredStopAtLevel=1 </run.jvmArguments>
+            <run.mainClass>com.imangel.Hello_World_Thymelift.Hello_World_ThymeliftApplication</run.mainClass>
             <Env.SPRING_OUTPUT_ANSI_ENABLED>always</Env.SPRING_OUTPUT_ANSI_ENABLED>
             <jpda.listen>true</jpda.listen>
-            <run.arguments>--spring.devtools.restart.enabled</run.arguments>
         </properties>
     </action>
     <action>
@@ -41,7 +39,7 @@
             <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
         </goals>
         <properties>
-            <exec.args>-classpath %classpath com.imangel.Hello_World.Hello_WorldApplication</exec.args>
+            <exec.args>-classpath %classpath com.imangel.Hello_World_Thymelift.Hello_World_ThymeliftApplication</exec.args>
             <exec.executable>java</exec.executable>
         </properties>
     </action>
