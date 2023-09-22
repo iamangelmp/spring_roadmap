@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello!</title>
+</head>
+<body>
+    <h1>Hi</h1>
+    <h2 th:text="${saludo}"></h2>
+    <p th:text="${persons}"></p>
+    <br/>
+    
+    <div th:if="${persons != null and ! persons.empty}">
+            <table border="1">
+        <tr>
+            <th>Name: </th>
+            <th>Last Name: </th>
+            <th>Email: </th>
+            <th>Cell phone:</th>
+            
+        </tr>
+        
+        <tr th:each="persona: ${persons}">
+            <td th:text="${persona.name}">Display Name</td>
+            <td th:text="${persona.last_name}">Display Last Name</td>
+            <td th:text="${persona.email}">Display Email</td>
+            <td th:text="${persona.phone}">Display Cellphone</td>
+        </tr>
+    </table>
+    </div>
+    
+    <div th:if="${persons == null or persons.empty }">
+        
+        <p>The user's List is empty</p>
+        
+    </div>
+    
+</body>
+</html>
