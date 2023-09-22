@@ -7,11 +7,33 @@
 </head>
 <body>
     <h1>Hi</h1>
-    <p th:text="${msj}"></p>
+    <p th:text="${persons}"></p>
     <br/>
-    <p>Name:  <span th:text="${persona.name}">Display Name</span></p>
-    <p>Last Name: <span th:text="${persona.last_name}">Display Last Name</span></p>
-    <p>Email: <span th:text="${persona.email}">Display Email</span></p>
-    <p>Cellphone: <span th:text="${persona.phone}">Display Cellphone</span></p>
+    
+    <div th:if="${persons != null and ! persons.empty}">
+            <table border="1">
+        <tr>
+            <th>Name: </th>
+            <th>Last Name: </th>
+            <th>Email: </th>
+            <th>Cell phone:</th>
+            
+        </tr>
+        
+        <tr th:each="persona: ${persons}">
+            <td th:text="${persona.name}">Display Name</td>
+            <td th:text="${persona.last_name}">Display Last Name</td>
+            <td th:text="${persona.email}">Display Email</td>
+            <td th:text="${persona.phone}">Display Cellphone</td>
+        </tr>
+    </table>
+    </div>
+    
+    <div th:if="${persons == null or persons.empty }">
+        
+        <p>the user's List is empty</p>
+        
+    </div>
+    
 </body>
 </html>
