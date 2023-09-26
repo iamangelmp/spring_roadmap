@@ -7,8 +7,38 @@
 </head>
 <body>
     <h1>Hi !</h1>
+    <br/>
+    <a href="/add">create user</a>
+    <br/>
     <h2 th:text="${saludo}"></h2>
     <p th:text="${persons}"></p>
+    
+        <div th:if="${persons != null and ! persons.empty}">
+            <table border="1">
+        <tr>
+            <th>Id </th>
+            <th>Name </th>
+            <th>Last Name </th>
+            <th>Email </th>
+            <th>Phone </th>
+            
+        </tr>
+        
+        <tr th:each="persona: ${persons}">
+            <td th:text="${persona.user_id}">Display ID</td>
+            <td th:text="${persona.user_name}">Display Name</td>
+            <td th:text="${persona.user_last_name}">Display Last Name</td>
+            <td th:text="${persona.user_email}">Display Email</td>
+            <td th:text="${persona.user_phone}">Display Cellphone</td>
+        </tr>
+    </table>
+    </div>
+    
+    <div th:if="${persons == null or persons.empty }">
+        
+        <p>The user's List is empty</p>
+        
+    </div>
    
 </body>
 </html>

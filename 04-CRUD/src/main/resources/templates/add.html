@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello!</title>
+</head>
+<body>
+    <h1>Person</h1>
+    <br/>
+    <a href="/">Home</a>
+    <br/>
+    <form th:action="@{/save}" method="post" th:object="${person}" >
+        <br/>
+        <label>Name: </label>
+        <input type="text" th:field="*{user_name}"/>
+        <br/>
+        <label>Last Name: </label>
+        <input type="text" th:field="*{user_last_name}"/>
+        <br/>
+        <label>Email: </label>
+        <input type="email" th:field="*{user_email}"/>
+        <br/>
+        <label>Phone: </label>
+        <input type="number" th:field="*{user_phone}" />
+        <br/>
+        <input type="submit" name="save" value="save"/>
+        
+    </form>
+   
+</body>
+</html>
