@@ -34,12 +34,18 @@ public class ControllerApp {
 	public String create(Person person) {
 		return "add";
 	}
-	
+
 	@GetMapping("/edit/{user_id}")
-	public String edit(Person person, Model model){
+	public String edit(Person person, Model model) {
 		person = service.getPerson(person);
 		model.addAttribute("person", person);
 		return "add";
+	}
+
+	@GetMapping("/delete/{user_id}")
+	public String delete(Person person, Model model) {
+		service.detelePerson(person);
+		return "redirect:/";
 	}
 
 	@PostMapping("/save")
