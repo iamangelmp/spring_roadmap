@@ -15,6 +15,7 @@
         <br/>
         <label>Name: </label>
         <input type="text" th:field="*{user_name}"/>
+        <span th:if="${#fields.hasErrors('user_name')}" th:errors="*{user_name}"> Error nombre</span>
         <br/>
         <label>Last Name: </label>
         <input type="text" th:field="*{user_last_name}"/>

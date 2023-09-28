@@ -3,10 +3,12 @@ package com.imangel.CRUD.web;
 import com.imangel.CRUD.DAO.PersonDAO;
 import com.imangel.CRUD.domain.Person;
 import com.imangel.CRUD.service.ServicePerson;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
@@ -49,7 +51,10 @@ public class ControllerApp {
 	}
 
 	@PostMapping("/save")
-	public String save(Person person) {
+	public String save(@Valid Person person, Errors errors) {
+		if(errors.hasErrors()){
+			return "add";
+		}
 		service.createPerson(person);
 		return "redirect:/";
 	}
