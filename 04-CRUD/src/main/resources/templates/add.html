@@ -11,6 +11,7 @@
     <a href="/">Home</a>
     <br/>
     <form th:action="@{/save}" method="post" th:object="${person}" >
+        <input type="hidden" name="user_id" th:field="*{user_id}" />
         <br/>
         <label>Name: </label>
         <input type="text" th:field="*{user_name}"/>
