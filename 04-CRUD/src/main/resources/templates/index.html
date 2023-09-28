@@ -31,7 +31,7 @@
             <td th:text="${persona.user_last_name}">Display Last Name</td>
             <td th:text="${persona.user_email}">Display Email</td>
             <td th:text="${persona.user_phone}">Display Cellphone</td>
-            <td><a th:href="@{/editar/ + ${persona.user_id}" th:text="Edit"></a></td>
+            <td><a th:href="@{/edit/} + ${persona.user_id}" th:text="Edit"></a></td>
         </tr>
     </table>
     </div>
