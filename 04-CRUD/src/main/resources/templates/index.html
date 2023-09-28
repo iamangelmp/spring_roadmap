@@ -21,7 +21,8 @@
             <th>Last Name </th>
             <th>Email </th>
             <th>Phone </th>
-            
+            <th>Editar</th>
+            <th>Eliminar </th>
         </tr>
         
         <tr th:each="persona: ${persons}">
@@ -30,6 +31,7 @@
             <td th:text="${persona.user_last_name}">Display Last Name</td>
             <td th:text="${persona.user_email}">Display Email</td>
             <td th:text="${persona.user_phone}">Display Cellphone</td>
+            <td><a th:href="@{/editar/ + ${persona.user_id}" th:text="Edit"></a></td>
         </tr>
     </table>
     </div>
